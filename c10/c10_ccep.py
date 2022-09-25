@@ -21,6 +21,7 @@ sys.path.append('..')
 
 from gradrewire import GradRewiring
 from deeprewire import DeepRewiring
+from ccep import CCEP
 
 ############## Reproducibility ##############
 _seed_ = 2020
@@ -234,6 +235,9 @@ if __name__ == "__main__":
                     optimizer_w = GradRewiring(weight_params, lr=learning_rate, alpha=penalty, s=s)
                 elif args.mode == 'deep':
                     optimizer_w = DeepRewiring(weight_params, lr=learning_rate, l1=penalty, max_s=s, soft=soft)
+
+                elif args.mode == 'ccep':
+                    optimizer_w = CCEP(weight_params, lr=learning_rate, l1=penalty, max_s=s, soft=soft)
                 optimizer_w_checkpoint = torch.load(os.path.join(model_dir, 'optim_w.pkl'))
                 optimizer_w.load_state_dict(optimizer_w_checkpoint)
 
