@@ -22,10 +22,10 @@ pip install --no-index torch==1.9.1 torchvision==0.9.1
 pip install thop
 pip install  tensorboard==2.2.1 --no-index
 pip list
-
+python --version
 nvidia-smi                        # you can use 'nvidia-smi' for a test
 # ResNet56 on CIFAR-10
 
-python c10.py -s 0.95  -gpu 0 --dataset-dir ../data_cifar10 --dump-dir dump -m grad
+python c10.py -test  -s 0.95  -gpu 0 --dataset-dir ../data_cifar10 --dump-dir dump_no_prune -m no_prune -N 20
 wait
 echo "Done"
