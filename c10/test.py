@@ -73,7 +73,7 @@ from model import Cifar10Net
 
 if __name__ == "__main__":
 
-    net = Cifar10Net(T=8).cuda()
+    net = Cifar10Net().cuda()
     print(f'Create new model')
     module = net.conv1
     print(list(module.named_parameters()))
